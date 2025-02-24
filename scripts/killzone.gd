@@ -1,10 +1,10 @@
-class_name Player
-
 extends Area2D
 
 @onready var timer: Timer = $Timer
 @onready var you_died: Label = $"/root/Game/Labels/YouDied"
 @onready var camera_2d: Camera2D = $"/root/Game/Player/PlayerCamera"
+
+@export var damage: int
 
 var dead = false
 
@@ -15,14 +15,22 @@ func center_label():
 	
 
 func _on_body_entered(body: Node2D) -> void:
-	print("You died")
-	dead = true
-	you_died.text = "You Died"
-	you_died.z_index = 999
-	center_label()
-	Engine.time_scale = 0.5
-	body.get_node("CollisionShape2D").queue_free()
-	timer.start()
+	if body is Player:
+		var player: Player = body
+		print("Body is a ", body.name)
+		player.take_damage(damage)
+		print("Player took ", damage, " damage. Now at ", player.health, " health.")
+		if player.health == 0:
+			dead = true
+			you_died.text = "You Died"
+			you_died.z_index = 999
+			center_label()
+			Engine.time_scale = 0.5
+			body.get_node("CollisionShape2D").queue_free()
+			timer.start()
+	else: 
+		print("Hmmm. Something other than the player was damaged. Body type: ", body.name)
+	
 	
 func _process(delta: float) -> void:
 	if dead:
