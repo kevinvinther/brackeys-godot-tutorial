@@ -2,6 +2,7 @@ class_name Player
 
 extends CharacterBody2D
 
+signal health_changed
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
@@ -9,6 +10,7 @@ const JUMP_VELOCITY = -300.0
 @export var health: int:
 	set(h):
 		health = clamp(h, 0, 100)
+		health_changed.emit(health)
 	get:
 		return health
 
