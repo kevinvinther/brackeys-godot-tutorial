@@ -7,4 +7,4 @@ var score = 0
 
 func add_point():
 	score += 1
-	score_label.text = "You collected " + str(score) + " out of " + str(score + coins.get_child_count() - 1) + " coins."
+	score_label.text = "You collected " + str(score) + " out of " + str(coins.get_child_count()) + " coins."
