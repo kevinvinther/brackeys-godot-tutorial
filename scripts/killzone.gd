@@ -1,3 +1,5 @@
+class_name Player
+
 extends Area2D
 
 @onready var timer: Timer = $Timer
@@ -16,6 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 	print("You died")
 	dead = true
 	you_died.text = "You Died"
+	you_died.z_index = 999
 	center_label()
 	Engine.time_scale = 0.5
 	body.get_node("CollisionShape2D").queue_free()

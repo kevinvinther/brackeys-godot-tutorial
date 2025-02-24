@@ -310,6 +310,7 @@ theme_override_font_sizes/font_size = 8
 text = "Great job! "
 
 [node name="YouDied" type="Label" parent="Labels"]
+z_index = 999
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("2_3d7u3")
