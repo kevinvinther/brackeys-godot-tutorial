@@ -2,23 +2,29 @@ class_name Player
 
 extends CharacterBody2D
 
-signal health_changed
+@onready var health_bar: ProgressBar = $HealthBar
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 
 @export var max_health: int
+
+var _health : int
+
 @export var health: int:
 	set(h):
-		health = clamp(h, 0, 100)
-		health_changed.emit(health)
+		_health = clamp(h, 0, 100)
 	get:
-		return health
+		return _health
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+func _ready():
+	health_bar.init_health_bar(health, max_health)
+
 func take_damage(damage: int):
 	health -= damage
+	health_bar.health = health
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
