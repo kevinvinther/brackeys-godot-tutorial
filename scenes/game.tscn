@@ -251,7 +251,7 @@ collision_enabled = false
 position = Vector2(1, -16)
 script = ExtResource("2_xvqwm")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="PlayerCamera" type="Camera2D" parent="Player"]
 position = Vector2(0, -4)
 zoom = Vector2(4, 4)
 limit_bottom = 80
@@ -308,3 +308,11 @@ offset_bottom = -71.0
 theme_override_fonts/font = ExtResource("8_mpark")
 theme_override_font_sizes/font_size = 8
 text = "Great job! "
+
+[node name="YouDied" type="Label" parent="Labels"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_3d7u3")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
