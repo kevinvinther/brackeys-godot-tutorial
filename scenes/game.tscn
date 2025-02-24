@@ -250,6 +250,7 @@ collision_enabled = false
 [node name="Player" parent="." instance=ExtResource("1_2cfuq")]
 position = Vector2(1, -16)
 script = ExtResource("2_xvqwm")
+max_health = 100
 health = 100
 
 [node name="PlayerCamera" type="Camera2D" parent="Player"]

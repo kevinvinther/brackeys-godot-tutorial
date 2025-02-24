@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://dv0nk6epc6qxw"]
+[gd_scene load_steps=26 format=3 uid="uid://dv0nk6epc6qxw"]
 
 [ext_resource type="Texture2D" uid="uid://bx5whtxi3l0dv" path="res://assets/sprites/knight.png" id="1_v8m1p"]
+[ext_resource type="PackedScene" uid="uid://dl36wjao7x1qt" path="res://scenes/health_bar.tscn" id="2_pmwmd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lcwta"]
 atlas = ExtResource("1_v8m1p")
@@ -183,3 +184,9 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_3eq64")
+
+[node name="HealthBar" parent="." instance=ExtResource("2_pmwmd")]
+offset_left = -17.0
+offset_top = -22.0
+offset_right = 17.0
+offset_bottom = -19.0
