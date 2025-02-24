@@ -1,8 +1,8 @@
 extends Area2D
 
 @onready var timer: Timer = $Timer
-@onready var you_died: Label = get_node("/root/Game/Labels/YouDied")
-@onready var camera_2d: Camera2D = get_node("/root/Game/Player/PlayerCamera")
+@onready var you_died: Label = $"/root/Game/Labels/YouDied"
+@onready var camera_2d: Camera2D = $"/root/Game/Player/PlayerCamera"
 
 var dead = false
 
