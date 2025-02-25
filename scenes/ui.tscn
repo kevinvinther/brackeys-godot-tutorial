@@ -26,6 +26,7 @@ scale = Vector2(4.0625, 4.0625)
 texture = SubResource("AtlasTexture_1a6l3")
 
 [node name="CoinAmount" type="Label" parent="CoinCounter"]
+layout_mode = 0
 offset_left = 56.0
 offset_top = 10.0
 offset_right = 98.0
