@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhdqti8u7hmey"]
+
+[ext_resource type="Texture2D" uid="uid://df1isw2ma0fp6" path="res://assets/sprites/coin.png" id="1_aan5h"]
+[ext_resource type="Script" path="res://scripts/coin_counter.gd" id="1_cbvsi"]
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_uscbw"]
+[ext_resource type="FontFile" uid="uid://dhy2twvrg0x17" path="res://assets/fonts/PixelOperator8.ttf" id="2_yi03t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a6l3"]
+atlas = ExtResource("1_aan5h")
+region = Rect2(0, 0, 16, 0)
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_uscbw")
+
+[node name="CoinCounter" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 61.0
+offset_bottom = 52.0
+script = ExtResource("1_cbvsi")
+metadata/_edit_use_anchors_ = true
+
+[node name="Coin" type="Sprite2D" parent="CoinCounter"]
+position = Vector2(30.5, 27.5)
+scale = Vector2(4.0625, 4.0625)
+texture = SubResource("AtlasTexture_1a6l3")
+
+[node name="CoinAmount" type="Label" parent="CoinCounter"]
+offset_left = 56.0
+offset_top = 10.0
+offset_right = 98.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(0.984314, 0.768627, 0.105882, 1)
+theme_override_fonts/font = ExtResource("2_yi03t")
+theme_override_font_sizes/font_size = 40
+text = "0"
