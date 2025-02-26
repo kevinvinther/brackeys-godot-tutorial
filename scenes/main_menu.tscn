@@ -1,9 +1,42 @@
-[gd_scene load_steps=10 format=4 uid="uid://djbv62w4mvvck"]
+[gd_scene load_steps=14 format=4 uid="uid://djbv62w4mvvck"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_s78l2"]
 [ext_resource type="FontFile" uid="uid://dhy2twvrg0x17" path="res://assets/fonts/PixelOperator8.ttf" id="2_beymh"]
 [ext_resource type="Texture2D" uid="uid://tebvirwxewoj" path="res://assets/sprites/world_tileset.png" id="3_uya5y"]
 [ext_resource type="PackedScene" uid="uid://btogh71npg4fl" path="res://scenes/platform.tscn" id="4_wb01x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mwl2"]
+bg_color = Color(0.0377368, 0.498394, 0.727808, 1)
+border_color = Color(0.0117647, 0.14902, 0.34902, 1)
+expand_margin_left = 4.0
+expand_margin_top = 1.0
+expand_margin_right = 4.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qb4qh"]
+bg_color = Color(0.0377368, 0.498394, 0.727808, 1)
+border_width_bottom = 5
+border_color = Color(0.0117647, 0.14902, 0.34902, 1)
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4e7p"]
+bg_color = Color(0.0980392, 0.313726, 0.752941, 1)
+border_width_bottom = 5
+border_color = Color(0.0117647, 0.14902, 0.34902, 1)
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="Theme" id="Theme_j1ocy"]
+Button/styles/focus = SubResource("StyleBoxFlat_4mwl2")
+Button/styles/hover = SubResource("StyleBoxFlat_qb4qh")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_4mwl2")
+Button/styles/normal = SubResource("StyleBoxFlat_y4e7p")
+Button/styles/pressed = SubResource("StyleBoxFlat_4mwl2")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_48m78"]
 texture = ExtResource("3_uya5y")
@@ -238,16 +271,21 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 14
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 1
 
 [node name="Play" type="Button" parent="Camera2D/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 0
+theme = SubResource("Theme_j1ocy")
+theme_type_variation = &"FlatButton"
 theme_override_fonts/font = ExtResource("2_beymh")
 theme_override_font_sizes/font_size = 32
 text = "Play"
@@ -256,6 +294,7 @@ text = "Play"
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = SubResource("Theme_j1ocy")
 theme_override_fonts/font = ExtResource("2_beymh")
 theme_override_font_sizes/font_size = 32
 text = "Quit"
