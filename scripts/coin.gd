@@ -5,7 +5,7 @@ extends Area2D
 @onready var ui: CanvasLayer = $"../../UI"
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	game_manager.add_point()
 	animation_player.play("pickup")
 	ui.add_coins(1)

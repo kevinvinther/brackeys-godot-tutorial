@@ -32,7 +32,7 @@ func _on_body_entered(body: Node2D) -> void:
 		print("Hmmm. Something other than the player was damaged. Body type: ", body.name)
 	
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if dead:
 		center_label()
 
